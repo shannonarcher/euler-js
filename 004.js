@@ -7,8 +7,8 @@ the product of two 2-digit numbers is 9009 = 91 × 99.
 Find the largest palindrome made from the product of two 3-digit numbers.
  */
 const digits = 3;
-const max = Math.pow(10, digits) - 1;
-const min = Math.pow(10, digits - 1);
+const max = (10 ** digits) - 1;
+const min = 10 ** (digits - 1);
 
 let palindrome = 0;
 
