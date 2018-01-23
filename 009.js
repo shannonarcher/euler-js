@@ -15,9 +15,10 @@ const target = 1000;
 let a = 0;
 let b = 0;
 let c = 0;
+let tripleFound = false;
 
-for (let i = 0; i < target * 0.5; i++) {
-  for (let j = 0; j < i; j++) {
+for (let i = 0; i < target * 0.5 && !tripleFound; i++) {
+  for (let j = 0; j < i && !tripleFound; j++) {
     let square = Math.sqrt(i * i + j * j);
     let sum = square + i + j;
     let isTriplet = j < i && i < square;
@@ -26,6 +27,7 @@ for (let i = 0; i < target * 0.5; i++) {
       a = j;
       b = i;
       c = square;
+      tripleFound = true;
     }
   }
 }
