@@ -17,8 +17,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
  */
 let max = 0;
 let value = 0;
-
-let sieve = {};
+const sieve = {};
 
 for (let i = 1; i < 1000000; i++) {
   sieve[i] = collatz(i);
