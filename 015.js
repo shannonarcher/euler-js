@@ -20,7 +20,7 @@ for (let i = size-1; i >= 0; i--) {
 }
 
 const totalPaths = grid[0][0].toLocaleString();
-console.log(`The number of routes through a 20x20 grid is ${totalPaths}`);
+console.log(`The number of routes through a ${size}x${size} grid is ${totalPaths}`);
 
 function getMoves(x = 0, y = 0) {
   if (x === size && y === size) return 1;
