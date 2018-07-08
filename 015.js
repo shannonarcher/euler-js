@@ -7,6 +7,8 @@ are exactly 6 routes to the bottom right corner.
 
 How many such routes are there through a 20×20 grid?
 */
+const {performance} = require('perf_hooks');
+
 const size = 20;
 const grid = [...Array(size+1)]
   .map(() => (
@@ -15,12 +17,15 @@ const grid = [...Array(size+1)]
 
 // working backwards, for each point calc paths to end
 grid[size][size] = 0;
+
+let start = performance.now();
 for (let i = size-1; i >= 0; i--) {
   grid[i][i] = getMoves(i, i);
 }
-
+let end = performance.now();
+let diff = Math.round((end - start) * 1000) / 1000;
 const totalPaths = grid[0][0].toLocaleString();
-console.log(`The number of routes through a ${size}x${size} grid is ${totalPaths}`);
+console.log(`The number of routes through a ${size}x${size} grid is ${totalPaths} (${diff}ms)`);
 
 function getMoves(x = 0, y = 0) {
   if (x === size && y === size) return 1;
@@ -43,5 +48,10 @@ function getMoves(x = 0, y = 0) {
 function factorial(n) {
   return n === 1 ? n : n * factorial(n-1);
 }
+
+start = performance.now();
 const t = factorial(2*size) / (factorial(size) * factorial(size));
-console.log(`The number of routes through a ${size}x${size} grid is ${t.toLocaleString()}`);
+end = performance.now();
+diff = Math.round((end - start) * 1000) / 1000;
+
+console.log(`The number of routes through a ${size}x${size} grid is ${t.toLocaleString()} (${diff}ms)`);
