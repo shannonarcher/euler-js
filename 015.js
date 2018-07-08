@@ -36,3 +36,12 @@ function getMoves(x = 0, y = 0) {
 
   return h + v;
 }
+
+// apparently this is a combinatrics problem that works out
+// to 2n choose n
+// which translates to (2n)! / n!(2n-n)!
+function factorial(n) {
+  return n === 1 ? n : n * factorial(n-1);
+}
+const t = factorial(2*size) / (factorial(size) * factorial(size));
+console.log(`The number of routes through a ${size}x${size} grid is ${t.toLocaleString()}`);
