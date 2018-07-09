@@ -7,7 +7,7 @@ are exactly 6 routes to the bottom right corner.
 
 How many such routes are there through a 20×20 grid?
 */
-const {performance} = require('perf_hooks');
+const { performance } = require('perf_hooks');
 
 const size = 20;
 const grid = [...Array(size+1)]

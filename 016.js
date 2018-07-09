@@ -5,6 +5,8 @@ Problem 16
 
 What is the sum of the digits of the number 21000?
 */
+const { performance } = require('perf_hooks');
+
 let two = [2];
 const power = 1000;
 
@@ -29,9 +31,12 @@ function times2(num) {
   return num;
 }
 
+let start = performance.now();
 for (var i = 1; i < power; i++) {
   two = times2(two);
 }
+let end = performance.now();
 
 const sum = two.reduce((p,c) => p + c, 0);
-console.log(`Sum of digits in 2^1000 is ${sum.toLocaleString()}`);
+const diff = Math.round((end - start) * 1000) / 1000;
+console.log(`Sum of digits in 2^1000 is ${sum.toLocaleString()} (${diff}ms)`);
