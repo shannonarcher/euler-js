@@ -11,6 +11,7 @@ Evaluate the sum of all the amicable numbers under 10000.
 const limit = 10000;
 const sums = [];
 const amicable = [];
+
 // for 10,000 get all numbers proper divisors
 for (let i = 1; i < limit; i++) {
   sums[i] = getDivisors(i)
