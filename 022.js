@@ -8,7 +8,9 @@ For example, when the list is sorted into alphabetical order, COLIN, which is wo
 What is the total of all the name scores in the file?
 */
 const fs = require('fs');
-const fileContents = fs.readFileSync('./resources/p022_names.txt', 'utf8');
+
+const filePath = './resources/p022_names.txt';
+const fileContents = fs.readFileSync(filePath, 'utf8');
 
 const {performance} = require('perf_hooks');
 
