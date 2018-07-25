@@ -21,10 +21,10 @@ const alphaValue = alpha.split('').reduce((p, c, i) => ({
   ...p, [c]: (i+1)
 }), {});
 
-// sort
 const st = performance.now();
+// sort
 names.sort();
-
+// sum
 const totalScore = names
   .map((name, i) => getAlphabetValue(name.toLowerCase()) * (i+1))
   .reduce((p, c) => p + c, 0);

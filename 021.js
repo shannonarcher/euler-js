@@ -8,6 +8,8 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 
 Evaluate the sum of all the amicable numbers under 10000.
 */
+const getDivisors = require('./util/get-divisors');
+
 const limit = 10000;
 const sums = [];
 const amicable = [];
@@ -35,20 +37,3 @@ console.log(`The sum of all amicable numbers under ${limit.toLocaleString()} is 
 // console.log(getDivisors(284));
 // console.log(getDivisors(28));
 // console.log(getDivisors(496));
-
-function getDivisors(n) {
-  const divisors = [];
-  if (n > 1) {
-    divisors.push(1);
-  }
-
-  for (let i = 2, s = Math.sqrt(n); i <= s; i++) {
-    if (n % i === 0) {
-      divisors.push(i);
-      divisors.push(n / i);
-    }
-  }
-  return divisors;
-}
-
-
