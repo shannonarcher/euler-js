@@ -9,21 +9,20 @@ By starting with 1 and 2, the first 10 terms will be:
 By considering the terms in the Fibonacci sequence whose values do not
 exceed four million, find the sum of the even-valued terms.
 */
-let prev = 1, curr = 2;
-let sum = curr;
-const max = 4 * Math.pow(10, 6);
+const format = require('./util/format-bigint');
+
+const fibonacci = require('./util/fibonacci');
+const sequence = fibonacci();
+
+let sum = 0n, curr = 0n;
+const max = 4000000n;
 
 while (curr < max) {
-  // swap prev and curr
-  curr = curr + prev;
-  prev = curr - prev;
-  curr = curr - prev;
-
   // find next number in sequence
-  curr += prev;
+  curr = sequence.next().value;
 
   // add current value to sum
-  sum += curr % 2 ? 0 : curr;
+  sum += curr % 2n ? 0n : curr;
 }
 
-console.log(`Sum of even numbered terms in Fibonacci sequence under ${max.toLocaleString()} is ${sum.toLocaleString()}`);
+console.log(`Sum of even numbered terms in Fibonacci sequence under ${format(max)} is ${format(sum)}`);
