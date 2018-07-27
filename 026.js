@@ -39,11 +39,12 @@ console.log(`Value less than ${limit.toLocaleString()} with longest recurring cy
 // console.log(recurringCycle(1, 2) === 0);
 // console.log(recurringCycle(1, 9) === 1);
 
+// return length of recurring cycle or 0 if non recurring
 function recurringCycle(num, den) {
   // use long division to detect recurring cycles
   const divisions = {};
   let length = 0, r = num, digits = '', index = 0;
-  // loop will always terminate on a rational number (all fractions are rational numbers)
+  // loop will always terminate on a rational number, (all fractions are rational numbers)
   while (true) {
     num = r;
     r = r % den;
